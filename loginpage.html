@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animated Login/Register</title>
+  <link rel="stylesheet" href="loginpagestyle.css">
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+
+  <!-- particles.js library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <style>
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    /* Optional: Slight dark overlay to boost particle visibility */
+    #particles-js::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.05);
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particles background container -->
+  <div id="particles-js"></div>
+
+  <!-- Login/Register Container -->
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+      <form>
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button>Register</button>
+        <div class="separator">or</div>
+        <button type="button" class="google-btn" id="googleSignUp">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" />
+          Continue with Google
+        </button>
+      </form>
+    </div>
+
+    <div class="form-container sign-in-container">
+      <form>
+        <h2>Sign in</h2>
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <p><a href="#" id="resetPasswordLink">Forgot Password?</a></p>
+        <button>Login</button>
+        <div class="separator">or</div>
+        <button type="button" class="google-btn" id="googleSignIn">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google logo" />
+          Continue with Google
+        </button>
+      </form>
+    </div>
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h2>Welcome Back!</h2>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h2>Hello, Friend!</h2>
+          <button class="ghost" id="signUp">Register</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Load custom JS logic -->
+  <script type="module" src="loginpagescript.js"></script>
+
+  <!-- particles.js config -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      particlesJS("particles-js", {
+        "particles": {
+          "number": {
+            "value": 80,
+            "density": { "enable": true, "value_area": 800 }
+          },
+          "color": {
+            "value": ["#f57c00", "#fbc02d", "#9c27b0", "#26c6da", "#e91e63"]
+          },
+          "shape": {
+            "type": "circle",
+            "stroke": { "width": 0, "color": "#000000" },
+            "polygon": { "nb_sides": 5 }
+          },
+          "opacity": {
+            "value": 0.4,
+            "random": true,
+            "anim": { "enable": false }
+          },
+          "size": {
+            "value": 6,
+            "random": true,
+            "anim": { "enable": false }
+          },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": "#777777",
+            "opacity": 0.2,
+            "width": 1
+          },
+          "move": {
+            "enable": true,
+            "speed": 2,
+            "direction": "none",
+            "random": false,
+            "straight": false,
+            "out_mode": "out",
+            "bounce": false
+          }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { "enable": true, "mode": "repulse" },
+            "onclick": { "enable": true, "mode": "push" },
+            "resize": true
+          },
+          "modes": {
+            "repulse": { "distance": 100, "duration": 0.4 },
+            "push": { "particles_nb": 4 }
+          }
+        },
+        "retina_detect": true
+      });
+    });
+  </script>
+
+</body>
+</html>

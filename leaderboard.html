@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - SipWise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="leaderboard.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="home.html">
+                <img src="images/logo.png" alt="Sipwise Logo"> SipWise
+            </a>
+        </div>
+        <a href="quiz.html" class="nav-link">Take Quiz</a>
+    </nav>
+
+    <main class="leaderboard-container">
+        <header class="leaderboard-header">
+            <h1><i class="fas fa-trophy"></i> Hydro Heroes Leaderboard</h1>
+            <p>See who's making the biggest splash in healthy choices!</p>
+        </header>
+
+        <div id="leaderboard-list" class="leaderboard-list">
+            <div class="loading-spinner"></div>
+        </div>
+    </main>
+
+    <footer>&copy; 2025 SipWise | Created by Sachin Rao Mandhiya</footer>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    
+    <script src="leaderboard.js"></script>
+</body>
+</html>

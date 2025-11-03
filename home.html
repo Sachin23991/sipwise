@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SipWise - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="home.css">
+  
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-storage-compat.js"></script>
+</head>
+<body>
+  <nav>
+    <div class="logo">
+        <img src="images/logo.png" alt="Sipwise Logo" > SipWise
+    </div>
+    <ul id="nav-links-list">
+      <li><a href="map.html">Map</a></li>
+      <li><a href="healthfact.html">Facts</a></li>
+      <li><a href="#alternatives">Alternatives</a></li>
+      <li><a href="quiz.html">Quiz</a></li>
+      <li><a href="healthai.html">HealthAi</a></li>
+
+      <li id="profile-link-container">
+          <a href="loginpage.html" class="btn-link secondary">Login</a>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="text">
+        <h1>Welcome to SipWise</h1>
+        <p>We're here to help you learn how soft drinks affect your body and mind.</p>
+        <div class="buttons">
+          <a href="exploreindex.html" class="btn-link primary">Explore About Soft Drinks</a>
+          <a href="quiz.html" class="btn-link secondary">Take a Quiz</a>
+        </div>
+      </div>
+      <div class="image">
+        <img src="images/colddrink.png" alt="Soft drink warning bottle" />
+      </div>
+    </div>
+  </section>
+
+  <section class="info-grid">
+    <div class="info-card hidden">
+      <img src="images/sugar.png" alt="Sugar cube icon">
+      <h3>High-Fructose</h3>
+      <p>Loaded with added sugar</p>
+    </div>
+    <div class="info-card hidden">
+      <img src="images/chemical.png" alt="Flask icon">
+      <h3>Phosphoric Acid</h3>
+      <p>May harm bone health</p>
+    </div>
+    <div class="info-card hidden">
+      <img src="images/caution.png" alt="Warning sign icon">
+      <h3>Excessive Caffeine</h3>
+      <p>Potential for addiction</p>
+    </div>
+  </section>
+
+  <section class="section hidden">
+    <div class="header-container">
+      <h2>
+        <span>Before vs. After</span>
+        <svg viewBox="0 0 200 10"><path d="M 5,5 Q 100,-2 195,5" /></svg>
+      </h2>
+    </div>
+    <div class="before-after">
+      <div class="image-container">
+        <img src="images/beforeimage.png" alt="Before image" >
+        <p class="image-caption">Before</p>
+      </div>
+      <ul class="stats-list">
+        <li class="hidden">🟡 Average Indian consumes 44L of soda/year</li>
+        <li class="hidden">🍩 1 soda/day = 7kg weight gain/year</li>
+        <li class="hidden">❤️ 22% higher risk of heart disease</li>
+      </ul>
+      <div class="image-container">
+        <img src="images/afterimage.png" alt="After image">
+        <p class="image-caption">After</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section hidden" id="alternatives">
+    <div class="header-container">
+        <h2>
+            <span>Healthy Alternatives</span>
+            <svg viewBox="0 0 250 10"><path d="M 5,5 Q 125,12 245,5" /></svg>
+        </h2>
+    </div>
+    <div class="scroller">
+        <div class="scroller-inner">
+            <div class="alt-item"><img src="images/coconutwater.png" alt="Coconut Water"><p>Coconut Water</p></div>
+            <div class="alt-item"><img src="images/fruitjuice.png" alt="Fruit Juices"><p>Fruit Juices</p></div>
+            <div class="alt-item"><img src="images/lemonwater.png" alt="Lemon Water"><p>Lemon Water</p></div>
+            <div class="alt-item tall-image"><img src="images/icedtea.png" alt="Iced Tea"><p>Iced Tea</p></div>
+            <div class="alt-item"><img src="images/coconutwater.png" alt="Coconut Water"><p>Coconut Water</p></div>
+            <div class="alt-item"><img src="images/fruitjuice.png" alt="Fruit Juices"><p>Fruit Juices</p></div>
+            <div class="alt-item"><img src="images/lemonwater.png" alt="Lemon Water"><p>Lemon Water</p></div>
+            <div class="alt-item tall-image"><img src="images/icedtea.png" alt="Iced Tea"><p>Iced Tea</p></div>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 SipWise | Created by Sachin Rao Mandhiya
+  </footer>
+
+  <div id="profile-context-menu" class="context-menu">
+    <button id="update-image-btn"><i class="fas fa-upload"></i> Update Image</button>
+    <button id="click-new-pic-btn"><i class="fas fa-camera"></i> Click New Picture</button>
+  </div>
+  <input type="file" id="image-upload-input" accept="image/*" style="display: none;">
+
+  <div id="camera-modal" class="modal-overlay">
+    <div class="camera-container">
+      <video id="camera-stream" autoplay playsinline></video>
+      <canvas id="photo-canvas" style="display:none;"></canvas>
+      <div class="camera-controls">
+        <button id="capture-btn">Capture</button>
+        <button id="cancel-camera-btn">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // --- Firebase Configuration ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyCynxhC8FUJZfmwR2WSa5eAUcPysTWCe_Y",
+      authDomain: "sipwise-89d46.firebaseapp.com",
+      projectId: "sipwise-89d46",
+      storageBucket: "sipwise-89d46.firebasestorage.app",
+      messagingSenderId: "620832207017",
+      appId: "1:620832207017:web:cf04d9f960dcae3ca939b8",
+      measurementId: "G-CJTT00G79K"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const storage = firebase.storage();
+
+    // --- Element Selections ---
+    const profileLinkContainer = document.getElementById('profile-link-container');
+    const contextMenu = document.getElementById('profile-context-menu');
+    const imageUploadInput = document.getElementById('image-upload-input');
+    
+    let longPressTimer;
+    let currentUser = null;
+
+    // --- Authentication and Profile Picture Logic ---
+    auth.onAuthStateChanged(user => {
+        currentUser = user;
+        if (user) {
+            const photoURL = user.photoURL || 'https://i.ibb.co/6yvC0rT/default-avatar.png';
+            profileLinkContainer.innerHTML = `
+                <a href="profile.html" class="profile-nav-link" title="View Profile">
+                    <img id="nav-profile-pic" src="${photoURL}" alt="My Profile">
+                </a>
+            `;
+            attachProfilePicListeners();
+        } else {
+            profileLinkContainer.innerHTML = '<a href="loginpage.html" class="btn-link secondary">Login</a>';
+        }
+    });
+    
+    function attachProfilePicListeners() {
+        const profilePicLink = document.querySelector('.profile-nav-link');
+        if (!profilePicLink) return;
+
+        // ++ UPDATED: Double-click for web
+        profilePicLink.addEventListener('dblclick', e => {
+            e.preventDefault();
+            showContextMenu(e.pageX, e.pageY);
+        });
+
+        // Long-press simulation for mobile
+        let touchStartTime = 0;
+        profilePicLink.addEventListener('touchstart', e => {
+            touchStartTime = new Date().getTime();
+        });
+
+        profilePicLink.addEventListener('touchend', e => {
+            const touchEndTime = new Date().getTime();
+            if (touchEndTime - touchStartTime > 5000) { // 5-second long press
+                 e.preventDefault();
+                 const touch = e.changedTouches[0];
+                 showContextMenu(touch.pageX, touch.pageY);
+            }
+        });
+    }
+
+    function showContextMenu(x, y) {
+        contextMenu.style.top = `${y}px`;
+        contextMenu.style.left = `${x}px`;
+        contextMenu.style.display = 'block';
+    }
+
+    window.addEventListener('click', (e) => {
+        // Hide menu if clicking outside the menu itself
+        if (!contextMenu.contains(e.target)) {
+             contextMenu.style.display = 'none';
+        }
+    });
+
+    // --- Context Menu Actions & Upload Logic ---
+    document.getElementById('update-image-btn').addEventListener('click', () => {
+        imageUploadInput.click();
+    });
+
+    imageUploadInput.addEventListener('change', (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            uploadProfilePicture(file);
+        }
+    });
+
+    function uploadProfilePicture(file) {
+        if (!currentUser) return alert('You must be logged in.');
+        const filePath = `profile-pictures/${currentUser.uid}/${Date.now()}_${file.name}`;
+        const storageRef = storage.ref(filePath);
+        const uploadTask = storageRef.put(file);
+
+        uploadTask.on('state_changed', 
+          null, 
+          (error) => { alert('Upload failed: ' + error.message); }, 
+          () => {
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+              currentUser.updateProfile({ photoURL: downloadURL }).then(() => {
+                document.getElementById('nav-profile-pic').src = downloadURL;
+                alert('Profile picture updated!');
+              });
+            });
+          }
+        );
+    }
+
+    // --- Camera Logic ---
+    const cameraModal = document.getElementById('camera-modal');
+    const video = document.getElementById('camera-stream');
+
+    document.getElementById('click-new-pic-btn').addEventListener('click', async () => {
+        cameraModal.style.display = 'flex';
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            video.srcObject = stream;
+        } catch (err) {
+            alert('Could not access camera. Please grant permission.');
+            cameraModal.style.display = 'none';
+        }
+    });
+
+    document.getElementById('capture-btn').addEventListener('click', () => {
+        const canvas = document.getElementById('photo-canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        
+        canvas.toBlob((blob) => {
+            const newFile = new File([blob], "new-profile-pic.jpg", { type: "image/jpeg" });
+            uploadProfilePicture(newFile);
+            closeCamera();
+        }, 'image/jpeg');
+    });
+
+    document.getElementById('cancel-camera-btn').addEventListener('click', closeCamera);
+
+    function closeCamera() {
+        if (video.srcObject) {
+            video.srcObject.getTracks().forEach(track => track.stop());
+        }
+        cameraModal.style.display = 'none';
+    }
+
+    // --- Original Animation Scripts ---
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        } else {
+          entry.target.classList.remove('show');
+        }
+      });
+    });
+    const hiddenElements = document.querySelectorAll('.hidden');
+    hiddenElements.forEach((el) => observer.observe(el));
+
+    const hero = document.querySelector('.hero-content');
+    const heroImage = document.querySelector('.hero-content .image img');
+    hero.addEventListener('mousemove', (e) => {
+      const { clientX, clientY, currentTarget } = e;
+      const { clientWidth, clientHeight } = currentTarget;
+      const rotateX = (clientY / clientHeight - 0.5) * -30;
+      const rotateY = (clientX / clientWidth - 0.5) * 30;
+      heroImage.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.1)`;
+    });
+    hero.addEventListener('mouseleave', () => {
+      heroImage.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+    });
+
+    const scrollers = document.querySelectorAll(".scroller");
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        scrollers.forEach((scroller) => {
+            scroller.setAttribute("data-animated", true);
+        });
+    }
+  </script>
+
+</body>
+</html>

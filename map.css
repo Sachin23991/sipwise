@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f4ffe8;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #2b4d22;
+}
+
+#map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+svg {
+  width: 80%;
+  height: auto;
+  cursor: pointer;
+}
+#info-box {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #e7ffce;
+  padding: 12px 20px;
+  border: 1px solid #b2df8a;
+  border-radius: 8px;
+  font-size: 18px;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}

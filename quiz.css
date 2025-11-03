@@ -1,0 +1,177 @@
+/* --- Global Styles & CSS Variables --- */
+:root {
+    --primary-color: #f97316;
+    --secondary-color: #c62828;
+    --easy-color: #2e7d32;
+    --medium-color: #f97316;
+    --hard-color: #c62828;
+    --text-dark: #4e2a2a;
+    --text-light: #5a2b2b;
+    --bg-main: #fffaf0;
+    --bg-card: rgba(255, 255, 255, 0.6);
+    --bg-nav: rgba(255, 240, 208, 0.7);
+    --border-color: rgba(255, 152, 0, 0.2);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-main);
+    background-image: linear-gradient(135deg, #fffaf0 0%, #ffe8cc 100%);
+    color: var(--text-dark);
+    margin: 0;
+    line-height: 1.6;
+}
+.logo img {
+  max-width: 70px;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  filter: grayscale(100%); 
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+  animation: float 3s ease-in-out infinite;
+}
+.logo img:hover {
+  transform: scale(1.1); 
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2)); 
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+/* --- Animations --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}
+
+/* --- Navigation --- */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+nav .logo a { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--primary-color); font-weight: 800; font-size: 24px; }
+nav .logo img { max-height: 50px; animation: float 3s ease-in-out infinite; }
+.user-profile { font-weight: 600; background-color: #fff; padding: 8px 16px; border-radius: 20px; box-shadow: 0 2px 4px var(--shadow-color); }
+
+/* --- Main Container & Step Cards --- */
+.quiz-container { max-width: 800px; margin: 40px auto; padding: 20px; text-align: center; }
+.quiz-step {
+    background: var(--bg-card);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(128, 72, 72, 0.15);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+h1 { font-size: 36px; color: var(--secondary-color); font-weight: 800; }
+h2 { font-size: 30px; color: var(--secondary-color); margin-bottom: 20px; }
+h3 { font-size: 24px; color: var(--primary-color); }
+
+/* --- Fact of the Day --- */
+#fact-of-the-day-container {
+    background-color: #fff;
+    border: 2px solid var(--border-color);
+    border-left: 8px solid var(--primary-color);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 30px 0;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+#fact-of-the-day-container h3 {
+    margin-top: 0;
+    color: var(--secondary-color);
+}
+#fact-of-the-day-container p {
+    font-size: 1.1em;
+    color: var(--text-light);
+}
+
+/* --- Buttons --- */
+.button-group { margin-top: 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+.btn-link {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 32px;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.difficulty-btn[data-difficulty="Easy"] { background-image: linear-gradient(45deg, var(--easy-color) 0%, #4caf50 100%); }
+.difficulty-btn[data-difficulty="Medium"] { background-image: linear-gradient(45deg, var(--medium-color) 0%, #ff9800 100%); }
+.difficulty-btn[data-difficulty="Hard"] { background-image: linear-gradient(45deg, var(--hard-color) 0%, #e53935 100%); }
+
+.btn-link.primary { background-image: linear-gradient(45deg, var(--primary-color) 0%, #ff9800 100%); }
+.btn-link.secondary { background-image: linear-gradient(45deg, var(--secondary-color) 0%, #e53935 100%); }
+.btn-link:hover { transform: translateY(-4px) scale(1.03); box-shadow: 0 8px 25px rgba(0,0,0,0.2); }
+.btn-link:disabled { background-image: none; background-color: #ccc; cursor: not-allowed; transform: none; box-shadow: none; }
+
+/* --- Quiz & Results --- */
+#chat-messages { height: 350px; overflow-y: auto; margin-bottom: 20px; padding: 10px; border: 1px solid var(--border-color); border-radius: 10px; display: flex; flex-direction: column; }
+.chat-bubble { display: flex; align-items: flex-end; gap: 10px; margin-bottom: 15px; max-width: 85%; animation: fadeInUp 0.4s ease-out; }
+.ai-bubble { align-self: flex-start; }
+.ai-bubble .message { background: #fff; }
+.user-bubble { align-self: flex-end; }
+.user-bubble .message { background: var(--primary-color); color: white; }
+#chat-input-container { display: flex; gap: 10px; }
+#user-input { flex-grow: 1; padding: 12px 20px; border: 2px solid #ddd; border-radius: 25px; font-size: 1em; transition: border-color 0.3s, box-shadow 0.3s; }
+#user-input:focus { border-color: var(--primary-color); box-shadow: 0 0 8px var(--border-color); outline: none; }
+#send-btn { padding: 12px 25px; border: none; background: var(--primary-color); color: white; font-weight: bold; border-radius: 25px; cursor: pointer; transition: background-color 0.3s; }
+#send-btn:hover { background: #e65100; }
+
+.progress-bar { width: 100%; height: 10px; background-color: #ffe8cc; border-radius: 5px; overflow: hidden; margin-top: 5px; margin-bottom: 20px; }
+.progress-bar-full { height: 100%; width: 0%; background-color: var(--primary-color); transition: width 0.4s ease-in-out; }
+#question-text { font-size: 22px; margin-bottom: 25px; }
+.btn-answer { display: block; width: 100%; margin-bottom: 10px; padding: 15px; font-size: 16px; background-color: #fff; border: 2px solid var(--border-color); border-radius: 12px; cursor: pointer; text-align: left; transition: all 0.3s; }
+.btn-answer:not(:disabled):hover { border-color: var(--primary-color); transform: translateX(5px); }
+.btn-answer.correct { background-color: #d4edda; border-color: #28a745; font-weight: bold; color: #155724; }
+.btn-answer.incorrect { background-color: #f8d7da; border-color: #dc3545; color: #721c24; }
+.btn-answer:disabled { cursor: not-allowed; opacity: 0.7; }
+
+/* --- Explanation Styles --- */
+#explanation-container h3 { margin-top: 30px; }
+.explanation-item { text-align: left; background-color: #fff; border-left: 5px solid var(--primary-color); padding: 15px; margin: 15px 0; border-radius: 0 8px 8px 0; }
+.explanation-q { margin: 0 0 10px 0; font-weight: bold; color: var(--text-dark); }
+.explanation-a { margin: 0; color: var(--text-light); }
+
+/* --- Image Studio & Final Image --- */
+#final-ai-image { max-width: 100%; border-radius: 10px; border: 3px solid var(--primary-color); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+textarea#image-prompt { width: calc(100% - 40px); padding: 15px; border-radius: 10px; border: 2px solid #ddd; font-family: 'Poppins', sans-serif; font-size: 16px; }
+.form-group { margin-bottom: 20px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; }
+
+/* --- Analysis & Charts --- */
+#analysis-charts-container { display: grid; grid-template-columns: 1fr; gap: 40px; margin-top: 30px; }
+.chart-wrapper { padding: 20px; background: #fff; border-radius: 15px; box-shadow: 0 4px 12px var(--shadow-color); }
+.chart-wrapper h3 { text-align: center; color: var(--secondary-color); margin-top: 0; }
+.chart-container { position: relative; height: 350px; width: 100%; }
+
+/* --- Utility & Footer --- */
+.loading-spinner { border: 5px solid #f3f3f3; border-top: 5px solid var(--primary-color); border-radius: 50%; width: 50px; height: 50px; animation: spin 1s linear infinite; margin: 20px auto; }
+.loading-spinner-small { border: 3px solid #f3f3f3; border-top: 3px solid var(--primary-color); border-radius: 50%; width: 25px; height: 25px; animation: spin 1s linear infinite; margin: 0 auto; }
+.hidden { display: none; }
+footer { background-color: #fff0d0; text-align: center; padding: 20px; font-size: 14px; color: var(--text-light); margin-top: 40px; }

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SipWise - AI Health Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="home.html">
+                <img src="images/logo.png" alt="Sipwise Logo"> SipWise
+            </a>
+        </div>
+        <div class="user-profile">
+            <span id="hydro-points-display">Hydro Points: 0 💧</span>
+        </div>
+    </nav>
+
+    <main class="quiz-container">
+
+        <div id="start-screen" class="quiz-step">
+            <h1>Welcome to the AI Health Zone</h1>
+            <h2>A Healthy quiz</h2>
+            <p>Test your knowledge on healthy hydration and beverage choices.</p>
+            
+            <div id="fact-of-the-day-container">
+                <div class="loading-spinner-small"></div>
+                <p>Loading a fresh fact for you...</p>
+            </div>
+
+            <h2>Choose Your Challenge</h2>
+            <div class="button-group">
+                <button id="btn-easy" class="btn-link difficulty-btn" data-difficulty="Easy">Easy (10 pts)</button>
+                <button id="btn-medium" class="btn-link difficulty-btn" data-difficulty="Medium">Medium (15 pts)</button>
+                <button id="btn-hard" class="btn-link difficulty-btn" data-difficulty="Hard">Hard (20 pts)</button>
+            </div>
+            
+            <h2 style="margin-top: 40px; margin-bottom: 0;">Or</h2>
+
+            <div class="button-group">
+                <button id="btn-show-analysis" class="btn-link secondary">Analyze Health Risks</button>
+                <button id="btn-show-studio" class="btn-link secondary">AI Image Studio</button>
+            </div>
+        </div>
+
+        <div id="quiz-flow-container" class="hidden">
+            <div class="quiz-header">
+                <span id="attempt-counter">Attempts Remaining: 3</span>
+            </div>
+            <div id="personal-questions-chat" class="quiz-step">
+                <div id="chat-messages"></div>
+                <div id="chat-input-container">
+                    <input type="text" id="user-input" placeholder="Type your answer...">
+                    <button id="send-btn">Send</button>
+                </div>
+            </div>
+
+            <div id="generated-quiz-box" class="quiz-step hidden"></div>
+            
+            <div id="results-box" class="quiz-step hidden">
+                <div id="score-header"></div>
+                <div id="explanation-container"></div>
+                <div id="results-buttons-container" class="button-group"></div>
+            </div>
+        </div>
+
+        <div id="image-studio" class="quiz-step hidden">
+            <h2>AI Image Studio</h2>
+            <p>Congratulations! Use your Hydro Points to create a unique, healthy-lifestyle image with AI.</p>
+            <div class="form-group">
+                <label for="image-prompt">Describe the image you want to create:</label>
+                <textarea id="image-prompt" rows="3" placeholder="e.g., A photorealistic image of a person jogging at sunrise with a water bottle."></textarea>
+            </div>
+            <button id="generate-real-image-btn" class="btn-link primary">Generate Image</button>
+            <div id="loading-image" class="loading-spinner hidden"></div>
+            <div id="final-image-container" class="hidden" style="margin-top: 20px;">
+                <h3>Your AI Creation:</h3>
+                <img id="final-ai-image" src="" alt="Your AI-generated image">
+                <div class="button-group" style="margin-top: 15px;">
+                     <button id="download-image-btn" class="btn-link secondary">Download Image</button>
+                     <button id="studio-back-btn" class="btn-link secondary">Back to Home</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="analysis-section" class="quiz-step hidden">
+            <h2>Health Impact Analysis of Beverage Choices in India</h2>
+            <p>This data is illustrative and designed to highlight key health trends and risks associated with beverage consumption.</p>
+            <div id="analysis-charts-container">
+            </div>
+            <div class="button-group" style="margin-top: 40px;">
+                <button id="btn-back-from-analysis" class="btn-link secondary">Back to Home</button>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>&copy; 2025 SipWise | Created by Sachin Rao Mandhiya</footer>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="quiz.js"></script>
+
+</body>
+</html>

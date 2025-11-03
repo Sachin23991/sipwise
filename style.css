@@ -1,0 +1,717 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Poppins', sans-serif; /* UPDATED FONT */
+    background-color: #e1fc9c; /* UPDATED dark background */
+    color: #fffcfc; /* UPDATED light text color */
+    line-height: 1.6;
+}
+html { scroll-behavior: smooth; }
+
+/* Header */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: #ffbb78!important; /* UPDATED dark glass effect */
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    border-bottom: 1px solid #f79329; /* UPDATED dark border */
+    transition: transform 0.3s ease-in-out;
+}
+.main-header.hidden {
+    transform: translateY(-100%);
+}
+.logo-img {
+    height: 40px;
+    width: auto;
+}
+
+/* Navigation Links adapted to new theme */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.nav-links li a {
+    color: #fe9e17; /* UPDATED */
+    text-decoration: none;
+    font-weight: 700;
+    padding-bottom: 5px;
+    position: relative;
+    transition: color 0.3s, transform 0.3s ease;
+}
+.nav-links li a:hover {
+    color: #ffa62b; /* UPDATED hover color */
+    transform: translateY(-3px); /* Lift animation */
+}
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #fcd34d; /* UPDATED underline color */
+    transition: width 0.3s ease-in-out;
+}
+.nav-links li a:hover::after {
+    width: 100%;
+}
+.nav-login-button { /* Special login button style */
+    background-color: transparent;
+    color: #ffa62b !important;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 50px;
+    border: 2px solid#ffa62b;
+    transition: all 0.3s;
+}
+.nav-login-button:hover {
+    background-color: #ea580c !important; /* UPDATED hover color */
+    color: #ffa62b !important;
+    transform: translateY(-2px);
+    border-color: #ea580c;
+}
+.nav-login-button::after {
+    display: none;
+}
+
+/* Hamburger Menu for Mobile */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #ffa62b; /* UPDATED bar color */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hero Section */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* This uses your background image. Make sure the path is correct. */
+    background: url('aman.png') no-repeat center center/cover;
+    color: rgb(255, 255, 255);
+}
+.hero-text {
+  z-index: 2;
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  text-align: center;
+  max-width: 700px;
+  padding: 0 20px;
+}
+.hero-text h1 {
+  white-space: nowrap;
+  font-size: 45px;
+  font-weight: 450;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-text p {
+  white-space: nowrap;
+  font-size: 21px;
+  margin-bottom: 10px;
+  opacity: 1;
+}
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.btn {
+  text-decoration: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+ transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.btn:hover {
+ transform: scale(1.07);
+  background-color: #fcd34d;
+  color: #222;
+  box-shadow: 0 4px 16px rgba(252,211,77,0.2);
+}
+.primary {
+  color: white;
+   border: 2px solid white;
+}
+.primary:hover {
+  background-color: #ea580c;
+}
+.secondary {
+  border: 2px solid white;
+  color: white;
+}
+.secondary:hover {
+  background-color: #ea580c;
+}
+h1.wave-text {
+  font-size: 3.5rem;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.wave-text span {
+  display: inline-block;
+}
+
+.wave-text:hover span {
+  animation: wave 1s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.wave-text span:nth-child(1) {
+  animation-delay: 0s;
+}
+.wave-text span:nth-child(2) {
+  animation-delay: 0.05s;
+}
+.wave-text span:nth-child(3) {
+  animation-delay: 0.1s;
+}
+.wave-text span:nth-child(4) {
+  animation-delay: 0.15s;
+}
+.wave-text span:nth-child(5) {
+  animation-delay: 0.2s;
+}
+.wave-text span:nth-child(6) {
+  animation-delay: 0.25s;
+}
+.wave-text span:nth-child(7) {
+  animation-delay: 0.3s;
+}
+.wave-text span:nth-child(8) {
+  animation-delay: 0.35s;
+}
+.wave-text span:nth-child(9) {
+  animation-delay: 0.4s;
+}
+.wave-text span:nth-child(10) {
+  animation-delay: 0.45s;
+}
+.wave-text span:nth-child(11) {
+  animation-delay: 0.5s;
+}
+.wave-text span:nth-child(12) {
+  animation-delay: 0.55s;
+}
+.wave-text span:nth-child(13) {
+  animation-delay: 0.6s;
+}
+.wave-text span:nth-child(14) {
+  animation-delay: 0.65s;
+}
+.wave-text span:nth-child(15) {
+  animation-delay: 0.7s;
+}
+.wave-text span:nth-child(16) {
+  animation-delay: 0.75s;
+}
+.wave-text span:nth-child(17) {
+  animation-delay: 0.8s;
+}
+.wave-text span:nth-child(18) {
+  animation-delay: 0.85s;
+}
+.wave-text span:nth-child(19) {
+  animation-delay: 0.9s;
+}
+.wave-text span:nth-child(20) {
+  animation-delay: 0.95s;
+}
+.wave-text span:nth-child(21) {
+  animation-delay: 1s;
+}
+.wave-text span:nth-child(22) {
+  animation-delay: 1.05s;
+}
+.wave-text span:nth-child(23) {
+  animation-delay: 1.1s;
+}
+.wave-text span:nth-child(24) {
+  animation-delay: 1.15s;
+}
+.wave-text span:nth-child(25) {
+  animation-delay: 1.2s;
+}
+.wave-text span:nth-child(26) {
+  animation-delay: 1.25s;
+}
+.wave-text span:nth-child(27) {
+  animation-delay: 1.3s;
+}
+.wave-text span:nth-child(28) {
+  animation-delay: 1.35s;
+}
+.wave-text span:nth-child(29) {
+  animation-delay: 1.4s;
+}
+.wave-text span:nth-child(30) {
+  animation-delay: 1.45s;
+}
+.wave-text span:nth-child(31) {
+  animation-delay: 1.5s;
+}
+.wave-text span:nth-child(32) {
+  animation-delay: 1.55s;
+}
+.wave-text span:nth-child(33) {
+  animation-delay: 1.6s;
+}
+.wave-text span:nth-child(34) {
+  animation-delay: 1.65s;
+}
+.wave-text span:nth-child(35) {
+  animation-delay: 1.7s;
+}
+.wave-text span:nth-child(36) {
+  animation-delay: 1.75s;
+}
+.wave-text span:nth-child(37) {
+  animation-delay: 1.8s;
+}
+.scroll-indicator { margin-top: 3rem; font-weight: 700; animation: bounce 2s infinite; }
+.scroll-indicator .arrow { font-size: 2rem; }
+@keyframes bounce { 0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 40% { transform: translateY(-20px); } 60% { transform: translateY(-10px); } }
+
+/* Gradient Fade to Dark Background */
+.content-fade {
+    height: 150px;
+    background: linear-gradient(to bottom,
+        rgba(18, 18, 18, 0), /* Fades from transparent */
+        #121212 /* Fades to our new dark background */
+    );
+    position: relative;
+    z-index: 2;
+}
+
+
+/* Sugar Reveal Animation */
+#sugar-reveal { height: 250vh; position: relative; }
+.animation-canvas {
+    height: 100vh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.soda-can { height: 60vh; z-index: 10; cursor: pointer; }
+.text-overlay {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    z-index: 20;
+}
+#sugar-counter {
+    font-size: 8rem;
+    font-weight: 900;
+    /* The red warning color still works well, but you could change it to #ea580c to match the theme */
+    color: #E63946; 
+    line-height: 1;
+}
+.text-overlay p { font-size: 1.5rem; font-weight: 700;color:#0c0b0b }
+.sugar-pile { position: absolute; bottom: 0; width: 100%; height: 50%; z-index: 5; }
+.sugar-cube {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Sections Styling */
+#facts, #alternatives, #pledge { padding: 6rem 5%; text-align: center; }
+#facts h2, #alternatives h2, #pledge h2 { font-size: 3rem; font-weight: 900; margin-bottom: 1rem;color: #0c0b0b; }
+#alternatives p, #pledge p { max-width: 600px; margin: 0 auto 3rem auto; font-size: 1.2rem; color: #0c0b0b; }
+
+/* Fact Cards - Dark Theme */
+.facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 4rem;
+    text-align: left;
+}
+.fact-card {
+    background-color: #1c1c1c; /* UPDATED */
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #333; /* UPDATED */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.fact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.fact-icon { font-size: 3rem; margin-bottom: 1rem; }
+.fact-card h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+.fact-card p { color: #a0a0a0; }
+
+/* Alternatives Section */
+.alternatives-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+.alt-card { border-radius: 12px; overflow: hidden; position: relative; }
+.alt-card img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* or adjust based on your design */
+    object-fit: contain;
+    transition: transform 0.4s;
+    display: block;
+    margin: 0 auto;
+}
+
+.alt-card:hover img { transform: scale(1.1); }
+.alt-card h4 {
+    position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: rgb(4, 4, 4); font-size: 1.5rem; margin: 0;
+}
+
+/* Pledge Section - Dark Theme */
+.pledge-form { display: flex; max-width: 500px; margin: 0 auto; gap: 1rem; }
+.pledge-form input {
+    flex-grow: 1;
+    padding: 0.75rem 1.2rem;
+    border: 1px solid #555; /* UPDATED */
+    background-color: #333; /* UPDATED */
+    color: #100f0f; /* UPDATED */
+    border-radius: 50px;
+    font-size: 1rem;
+}
+.pledge-form .cta-button { /* Reusing the primary button style */
+    border: 2px solid white;
+    background-color: #111010;
+    color: white;
+}
+.pledge-form .cta-button:hover {
+    background-color: #ea580c;
+    border-color: #ea580c;
+}
+
+/* Footer - Dark Theme */
+footer {
+    text-align: center;
+    padding: 3rem;
+    font-size: 0.9rem;
+    color: #666; /* UPDATED */
+    background: #1c1c1c; /* UPDATED */
+}
+/* --- PREVIOUS CSS STYLES from V1 --- */
+/* (Copy all styles from the previous response here first) */
+
+/* --- NEW & UPDATED STYLES for V2 --- */
+:root {
+    --cursor-size: 15px;
+    --cursor-color: #007BFF;
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F8F9FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+.loader-text {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    position: fixed;
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    border-radius: 50%;
+    background-color: var(--cursor-color);
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease-out, width 0.2s, height 0.2s;
+}
+
+/* Dynamic Header */
+.main-header.hidden {
+    transform: translateY(-100%);
+}
+
+/* Hero Section Updates */
+#hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content { z-index: 2; position: relative; }
+.reveal-text { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+.reveal-text > * {
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+/* Animation Utility Class */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fact Cards Updates */
+.fact-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.fact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+.fact-card .fact-icon { transition: transform 0.3s; }
+.fact-card:hover .fact-icon { transform: rotate(15deg) scale(1.2); }
+
+/* Sugar Reveal Updates */
+.soda-can { cursor: pointer; }
+.interaction-prompt {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #007BFF;
+    color: rgb(4, 4, 4);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Pledge Form Updates */
+.form-success-message {
+    display: none;
+    margin-top: 1rem;
+    color: #007BFF;
+    font-weight: 700;
+}
+
+
+/* ================================== */
+/* == Main Header & Navigation CSS == */
+/* ================================== */
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: rgba(248, 249, 250, 0.85);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    border-bottom: 1px solid #dee2e6;
+    transition: transform 0.3s ease-in-out; /* For hide/show on scroll */
+}
+
+/* For the hide on scroll JS */
+.main-header.hidden {
+    transform: translateY(-100%);
+}
+
+.logo-img {
+    height: 40px; /* Adjust height as needed */
+    width: auto;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    color: #343A40;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 0.5rem 0;
+    position: relative;
+    transition: color 0.3s;
+}
+
+/* Animated underline effect on hover */
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #007BFF;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-links li a:hover {
+    color: #007BFF;
+}
+
+.nav-links li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Special style for the login button to make it stand out */
+.nav-login-button {
+    background-color: #007BFF;
+    color: #fff !important; /* Use !important to override other link styles */
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+.nav-login-button:hover {
+    background-color: #0056b3;
+    color: #fff !important;
+    transform: translateY(-2px);
+}
+.nav-login-button::after {
+    display: none; /* No underline effect for the button */
+}
+
+/* Hamburger Menu (Initially hidden on desktop) */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001; /* Must be on top */
+}
+
+.hamburger .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #343A40;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ================================== */
+/* === Responsive Mobile Styles === */
+/* ================================== */
+
+/* === Responsive Mobile Styles === */
+@media (max-width: 768px) {
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background-color: #1c1c1c; /* UPDATED dark mobile menu */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -10px 0 30px rgba(0,0,0,0.2);
+    }
+    .nav-links.nav-active { right: 0; }
+    .nav-links li a { font-size: 1.2rem; }
+    .hamburger { display: block; }
+    .hamburger.is-active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+/* Creates a smooth fade from the hero image to the page background */
+.content-fade {
+    height: 150px; /* Adjust the height to make the fade longer or shorter */
+    background: linear-gradient(to bottom, 
+        rgba(248, 127, 21, 0), /* Starts fully transparent */
+        #F8F9FA /* Fades to our main background color */
+    );
+    position: relative;
+    z-index: 2; /* Ensures it sits on top of the hero background */
+}
+
+
+
+
+
+.logo img {
+  max-width: 70px;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  filter: grayscale(100%); 
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+  animation: float 3s ease-in-out infinite;
+}
+.logo img:hover {
+  transform: scale(1.1); 
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2)); 
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}

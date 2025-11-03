@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #FF6B35;
+    --secondary-color: #6A4C93;
+    --light-bg: #FFF8F0;
+    --text-color: #333333;
+    --ai-bubble-bg: #f1f0f0;
+    --user-bubble-bg: #FF6B35;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    flex-shrink: 0;
+}
+
+nav .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 24px;
+}
+
+nav .logo img { max-height: 50px; }
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover { background-color: rgba(255, 107, 53, 0.1); }
+
+.chat-container {
+    max-width: 700px;
+    width: 100%;
+    margin: 20px auto;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 120px);
+}
+
+.chat-header {
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+.chat-header h1 {
+    margin: 0;
+    font-size: 1.5em;
+    color: var(--secondary-color);
+}
+
+.chat-header p {
+    margin: 5px 0 0;
+    color: #888;
+}
+
+.chat-window {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-bubble {
+    max-width: 80%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    animation: fadeIn 0.4s ease-out;
+}
+
+.ai-message {
+    background-color: var(--ai-bubble-bg);
+    align-self: flex-start;
+    border-top-left-radius: 4px;
+}
+
+.user-message {
+    background-color: var(--user-bubble-bg);
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-top-right-radius: 4px;
+}
+
+.chat-footer {
+    display: flex;
+    padding: 15px;
+    border-top: 1px solid #eee;
+}
+
+#user-input {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+}
+
+#send-btn {
+    border: none;
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#send-btn:hover { background-color: #e65100; }
+
+.disclaimer {
+    font-size: 0.8em;
+    color: #999;
+    text-align: center;
+    padding: 0 15px 15px;
+}
+
+#typing-indicator {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+#typing-indicator .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin: 0 3px;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+#typing-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+#typing-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+.hidden { display: none !important; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+.logo img {
+  max-width: 70px;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  filter: grayscale(100%); 
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+  animation: float 3s ease-in-out infinite;
+}
+.logo img:hover {
+  transform: scale(1.1); 
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2)); 
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}

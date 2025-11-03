@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SipWise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="preloader">
+        <div class="loader-text">Sip Wise</div>
+    </div>
+    
+    <div class="custom-cursor"></div>
+
+    <header class="main-header">
+    <div class="logo">
+        <img src="images/logo.png" alt="Sipwise Logo" > SipWise
+    </div>
+
+     <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="healthfact.html">Health Facts</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact us</a></li>
+            <li><a href="loginpage.html" class="nav-login-button">Login</a></li>
+        </ul>
+    </nav>
+    <button class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+</header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="wave-text">
+                        <span>D</span><span>e</span><span>l</span><span>i</span><span>c</span><span>i</span><span>o</span><span>u</span><span>s</span>
+                        <span>&nbsp;</span>
+                        <span>T</span><span>a</span><span>s</span><span>t</span><span>e</span><span>,</span>
+                        <span>&nbsp;</span>
+                        <span>I</span><span>n</span><span>f</span><span>o</span><span>r</span><span>m</span><span>e</span><span>d</span>
+                        <span>&nbsp;</span>
+                        <span>C</span><span>h</span><span>o</span><span>i</span><span>c</span><span>e</span><span>s</span>
+                    </h1>
+        
+                    <p>Know what you drink — explore the good, the bad, and the fizzy truth.</p>
+                    <div class="cta-buttons">
+                        <a href="exploreindex.html" class="btn primary">Explore Drinks</a>
+                        <a href="ingredients.html" class="btn secondary">Learn About Harmful Ingredients</a>
+                    </div>
+                </div>
+            </div>
+            </section>
+
+        <section id="sugar-reveal">
+            <div class="animation-canvas">
+                <div class="text-overlay">
+                    <h2 id="sugar-counter">0g</h2>
+                    <p>of sugar per can</p>
+                    <div class="interaction-prompt">Click & Hold Can to Pour</div>
+                </div>
+                <img src="frontcold.png" alt="Can of generic soda" class="soda-can">
+                <div class="sugar-pile"></div>
+            </div>
+        </section>
+        
+        <section id="facts">
+            <h2>The Bitter Truth: Beyond the Sugar</h2>
+            <div class="facts-grid">
+                <div class="fact-card">
+                    <div class="fact-icon">📈</div>
+                    <h3>Weight Gain & Obesity</h3>
+                    <p>Liquid sugar calories bypass the body's fullness signals, leading directly to weight gain and increasing the risk of obesity by 60%.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🩸</div>
+                    <h3>Type 2 Diabetes</h3>
+                    <p>Drinking just one soft drink per day increases your risk of developing Type 2 Diabetes by 26%, due to insulin resistance.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">🦷</div>
+                    <h3>Dental Erosion</h3>
+                    <p>The high levels of phosphoric and citric acid in soda erode tooth enamel, causing cavities and irreversible dental damage.</p>
+                </div>
+                <div class="fact-card">
+                    <div class="fact-icon">❤️</div>
+                    <h3>Heart Disease</h3>
+                    <p>Regular consumption is linked to higher blood pressure, unhealthy cholesterol levels, and a greater risk of heart attack.</p>
+                </div>
+            </div>
+        </section>
+        <section id="alternatives">
+            <h2>Choose a Better Sip</h2>
+            <p>Quitting soft drink doesn't have to be boring. Discover refreshing and healthy alternatives.</p>
+            <div class="alternatives-grid">
+                <div class="alt-card">
+                    <img src="images/infusedwater.png" alt="Glass of fruit infused water">
+                    <h4>Infused Water</h4>
+                </div>
+                 <div class="alt-card">
+                    <img src="images/sparklingwater.png" alt="Glass of sparkling water with lime">
+                    <h4>Sparkling Water & Lime</h4>
+                </div>
+                <div class="alt-card">
+                    <img src="images/greenteaunsweetned.png" alt="Cup of herbal tea">
+                    <h4>Unsweetened Herbal Tea</h4>
+                </div>
+            </div>
+        </section>
+
+        <section id="pledge">
+            <h2>Take the 30-Day No-SoftDrink Challenge</h2>
+            <p>Your body will thank you. Join thousands of others and pledge to go cola-free for one month.</p>
+            <form class="pledge-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit" class="cta-button">I'm In!</button>
+                <p class="form-success-message">Thank you! You're on the list. We're proud of you! ✨</p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 SipWise Initiative.|Sachin Rao Mandhaiya</p>
+        <p>This is a fictional page for educational purposes.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - SipWise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="home.html">
+                <img src="images/logo.png" alt="Sipwise Logo"> SipWise
+            </a>
+        </div>
+        <a href="quiz.html" class="nav-link">Take Quiz</a>
+    </nav>
+
+    <main class="profile-container">
+        <div class="profile-sidebar">
+            <div class="avatar-card">
+                <img src="https://i.ibb.co/6yvC0rT/default-avatar.png" alt="User Avatar" id="profile-avatar">
+                <h2 id="user-display-name">User Name</h2>
+                <p id="user-email">user@example.com</p>
+                <div class="hydro-points">
+                    <i class="fas fa-tint"></i>
+                    <span id="hydro-points-display">0</span> Hydro Points
+                </div>
+            </div>
+            <div class="sidebar-nav">
+                <button class="nav-item active" data-tab="profile"><i class="fas fa-user-edit"></i> Edit Profile</button>
+                <button class="nav-item" data-tab="security"><i class="fas fa-shield-alt"></i> Security</button>
+                <button class="nav-item" data-tab="settings"><i class="fas fa-cog"></i> Settings</button>
+                <button class="nav-item" data-tab="activity"><i class="fas fa-chart-line"></i> My Activity</button>
+                 <a href="leaderboard.html" class="nav-item"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <button id="logout-btn" class="nav-item logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+        </div>
+
+        <div class="profile-main">
+            <div id="profile-tab" class="content-tab active">
+                <h1>Public Profile</h1>
+                <p>This information may be displayed publicly.</p>
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label for="displayName">Display Name</label>
+                        <input type="text" id="displayName" placeholder="Enter your display name">
+                    </div>
+                    <div class="form-group">
+                        <label for="photoURL">Profile Picture URL</label>
+                        <input type="url" id="photoURL" placeholder="https://example.com/image.png">
+                    </div>
+                    <button type="submit" class="btn-save">Save Changes</button>
+                </form>
+            </div>
+
+            <div id="security-tab" class="content-tab">
+                <h1>Account Security</h1>
+                <div class="security-option">
+                    <div>
+                        <h3>Change Password</h3>
+                        <p>For security, we will send a password reset link to your email.</p>
+                    </div>
+                    <button id="change-password-btn" class="btn-action">Send Reset Link</button>
+                </div>
+                <div class="security-option">
+                    <div>
+                        <h3>Verify Your Email</h3>
+                        <p>We'll send a verification link to your primary email to confirm ownership.</p>
+                    </div>
+                    <button id="verify-email-btn" class="btn-action">Send Link</button>
+                </div>
+            </div>
+
+             <div id="settings-tab" class="content-tab">
+                <h1>Settings</h1>
+                <div class="settings-option">
+                     <h3>Appearance</h3>
+                     <div class="theme-switcher">
+                         <span>Light</span>
+                         <label class="switch">
+                             <input type="checkbox" id="theme-toggle">
+                             <span class="slider round"></span>
+                         </label>
+                         <span>Dark</span>
+                     </div>
+                </div>
+            </div>
+            
+            <div id="activity-tab" class="content-tab">
+                <h1>My Activity</h1>
+                <div class="activity-section">
+                    <h2>Personalized Health Tips</h2>
+                    <p>AI-generated tips based on your quiz interview answers.</p>
+                    <button id="get-tips-btn" class="btn-action">Generate My Tips</button>
+                    <div id="health-tips-container" class="tips-container"></div>
+                </div>
+                <div class="activity-section">
+                    <h2>My Image Gallery</h2>
+                    <p>Your 5 most recently generated images.</p>
+                    <div id="image-gallery-container" class="gallery-container"></div>
+                </div>
+                <div class="activity-section">
+                    <h2>Quiz History</h2>
+                    <p>Your recent quiz scores and performance.</p>
+                    <div id="quiz-history-container"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore-compat.js"></script>
+
+    <script type="module" src="profile.js"></script>
+</body>
+</html>

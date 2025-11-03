@@ -1,0 +1,185 @@
+/* Using the color scheme from healthfact.css */
+:root {
+    --primary-color: #FF6B35;   /* Mango orange */
+    --secondary-color: #6A4C93;  /* Blackberry purple */
+    --accent-color: #FFA630;    /* Pineapple yellow-orange */
+    --text-color: #333333;
+    --light-bg: #FFF8F0;
+    --gold-color: #FFD700;
+    --silver-color: #c0c0c0;
+    --bronze-color: #cd7f32;
+    --shadow-color: rgba(0, 0, 0, 0.08);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--light-bg);
+    color: var(--text-color);
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+nav .logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 800;
+    font-size: 24px;
+}
+
+nav .logo img {
+    max-height: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--primary-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    transition: background-color 0.3s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 107, 53, 0.1);
+}
+
+.leaderboard-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.leaderboard-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.leaderboard-header h1 {
+    font-size: 2.5em;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.leaderboard-header .fa-trophy {
+    color: var(--accent-color);
+}
+
+.leaderboard-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.list-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.rank {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: var(--text-color);
+    width: 50px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.list-item[data-rank="1"] .rank { color: var(--gold-color); }
+.list-item[data-rank="2"] .rank { color: var(--silver-color); }
+.list-item[data-rank="3"] .rank { color: var(--bronze-color); }
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 15px;
+    border: 3px solid transparent;
+}
+
+.list-item[data-rank="1"] .avatar { border-color: var(--gold-color); }
+.list-item[data-rank="2"] .avatar { border-color: var(--silver-color); }
+.list-item[data-rank="3"] .avatar { border-color: var(--bronze-color); }
+
+.name {
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.points {
+    font-size: 1.2em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.points .fa-tint {
+    font-size: 0.8em;
+    margin-right: 3px;
+}
+
+.list-item.current-user {
+    background-color: #fff4e6;
+    border: 2px solid var(--primary-color);
+}
+
+.loading-spinner {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin: 40px auto;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+footer {
+    background-color: #fff0d0;
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+
+
+.logo img {
+  max-width: 70px;
+  height: auto;
+  display: block;
+  border-radius: 50%;
+  filter: grayscale(100%); 
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+  animation: float 3s ease-in-out infinite;
+}
+.logo img:hover {
+  transform: scale(1.1); 
+  filter: drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.2)); 
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+}

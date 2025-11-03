@@ -1,0 +1,370 @@
+/* Reset and Base Styles from original explorestyle.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #ff6614, #ff9500);
+    background-size: 300% 300%;
+    animation: gradientShift 15s ease infinite;
+    color: #fff;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.8rem;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Company Grid Styles from original explorestyle.css */
+#companies-page {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+
+.company-card {
+    background: rgb(255, 255, 255, 0.9);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    width: 280px;
+}
+
+.company-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+.company-logo {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    padding: 30px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8eb 100%);
+}
+
+.company-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.company-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.company-origin {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+}
+
+/* CAROUSEL STYLES - Merged from the Airpods project */
+:root{
+    --item1-transform: translateX(-100%) translateY(-5%) scale(1.5);
+    --item1-filter: blur(30px);
+    --item1-zIndex: 11;
+    --item1-opacity: 0;
+
+    --item2-transform: translateX(0);
+    --item2-filter: blur(0px);
+    --item2-zIndex: 10;
+    --item2-opacity: 1;
+
+    --item3-transform: translate(50%,10%) scale(0.8);
+    --item3-filter: blur(10px);
+    --item3-zIndex: 9;
+    --item3-opacity: 1;
+
+    --item4-transform: translate(90%,20%) scale(0.5);
+    --item4-filter: blur(30px);
+    --item4-zIndex: 8;
+    --item4-opacity: 1;
+    
+    --item5-transform: translate(120%,30%) scale(0.3);
+    --item5-filter: blur(40px);
+    --item5-zIndex: 7;
+    --item5-opacity: 0;
+}
+#brands-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* --- Apply the same gradient as the body --- */
+    background: linear-gradient(135deg, #ff6614, #ff9500);
+    background-size: 300% 300%;
+    animation: gradientShift 15s ease infinite;
+    /* --- Change text color to white for readability --- */
+    color: #0b0b0b;
+}
+
+.carousel{
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+.carousel .list{
+    position: absolute;
+    width: 1140px;
+    max-width: 90%;
+    height: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.carousel .list .item{
+    position: absolute;
+    left: 0%;
+    width: 70%;
+    height: 100%;
+    font-size: 15px;
+    transition: left 0.5s, opacity 0.5s, width 0.5s;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.carousel .list .item:nth-child(n + 6){
+    opacity: 0;
+}
+.carousel .list .item:nth-child(2){
+    z-index: 10;
+    transform: translateX(0);
+}
+.carousel .list .item img{
+    width: 40%;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 1.5s;
+    object-fit: contain;
+}
+
+.carousel .list .item .introduce{
+    opacity: 0;
+    pointer-events: none;
+}
+.carousel .list .item:nth-child(2) .introduce{
+    opacity: 1;
+    pointer-events: auto;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    transform: translateY(-50%);
+    transition: opacity 0.5s;
+}
+.carousel .list .item .introduce .title{
+    font-size: 2em;
+    font-weight: 500;
+    line-height: 1em;
+}
+.carousel .list .item .introduce .topic{
+    font-size: 4em;
+    font-weight: 600;
+}
+.carousel .list .item .introduce .des{
+    font-size: small;
+    color: #5559;
+}
+.carousel .list .item .introduce .seeMore{
+    display: none; /* We don't need this button */
+}
+
+/* Positioning for carousel items */
+.carousel .list .item:nth-child(1){
+    transform: var(--item1-transform);
+    filter: var(--item1-filter);
+    z-index: var(--item1-zIndex);
+    opacity: var(--item1-opacity);
+    pointer-events: none;
+}
+.carousel .list .item:nth-child(3){
+    transform: var(--item3-transform);
+    filter: var(--item3-filter);
+    z-index: var(--item3-zIndex);
+}
+.carousel .list .item:nth-child(4){
+    transform: var(--item4-transform);
+    filter: var(--item4-filter);
+    z-index: var(--item4-zIndex);
+}
+.carousel .list .item:nth-child(5){
+    transform: var(--item5-transform);
+    filter: var(--item5-filter);
+    opacity: var(--item5-opacity);
+    pointer-events: none;
+}
+.carousel .list .item:nth-child(2) .introduce .title,
+.carousel .list .item:nth-child(2) .introduce .topic,
+.carousel .list .item:nth-child(2) .introduce .des {
+    opacity: 0;
+    animation: showContent 0.5s 1s ease-in-out 1 forwards;
+}
+@keyframes showContent{
+    from{
+        transform: translateY(-30px);
+        filter: blur(10px);
+    }to{
+        transform: translateY(0);
+        opacity: 1;
+        filter: blur(0px);
+    }
+}
+.carousel .list .item:nth-child(2) .introduce .topic{ animation-delay: 1.2s; }
+.carousel .list .item:nth-child(2) .introduce .des{ animation-delay: 1.4s; }
+
+/* Next/Prev Click Animations */
+.carousel.next .item:nth-child(1){ animation: transformFromPosition2 0.5s ease-in-out 1 forwards; }
+@keyframes transformFromPosition2{ from{ transform: var(--item2-transform); filter: var(--item2-filter); opacity: var(--item2-opacity); }}
+.carousel.next .item:nth-child(2){ animation: transformFromPosition3 0.7s ease-in-out 1 forwards; }
+@keyframes transformFromPosition3{ from{ transform: var(--item3-transform); filter: var(--item3-filter); opacity: var(--item3-opacity); }}
+.carousel.next .item:nth-child(3){ animation: transformFromPosition4 0.9s ease-in-out 1 forwards; }
+@keyframes transformFromPosition4{ from{ transform: var(--item4-transform); filter: var(--item4-filter); opacity: var(--item4-opacity); }}
+.carousel.next .item:nth-child(4){ animation: transformFromPosition5 1.1s ease-in-out 1 forwards; }
+@keyframes transformFromPosition5{ from{ transform: var(--item5-transform); filter: var(--item5-filter); opacity: var(--item5-opacity); }}
+.carousel.prev .list .item:nth-child(5){ animation: transformFromPosition4 0.5s ease-in-out 1 forwards; }
+.carousel.prev .list .item:nth-child(4){ animation: transformFromPosition3 0.7s ease-in-out 1 forwards; }
+.carousel.prev .list .item:nth-child(3){ animation: transformFromPosition2 0.9s ease-in-out 1 forwards; }
+.carousel.prev .list .item:nth-child(2){ animation: transformFromPosition1 1.1s ease-in-out 1 forwards; }
+@keyframes transformFromPosition1{ from{ transform: var(--item1-transform); filter: var(--item1-filter); opacity: var(--item1-opacity); }}
+
+/* Arrow buttons */
+.arrows{
+    position: absolute;
+    bottom: 10px;
+    width: 1140px;
+    max-width: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#prev, #next{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-family: monospace;
+    border: 1px solid #5555;
+    font-size: large;
+}
+#back{
+    border: none;
+    border-bottom: 1px solid #555;
+    font-family: Poppins;
+    font-weight: bold;
+    letter-spacing: 3px;
+    background-color: transparent;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#brands-page {
+    display: none;
+}
+
+/* When the body has the .show-brands class... */
+body.show-brands .container {
+    /* ...hide the main container with the company list */
+    display: none;
+}
+body.show-brands #brands-page {
+    /* ...and show the brands page */
+    display: block;
+}
+
+/* Add these new styles to the end of your file */
+
+/* --- 1. 3D Card Tilt Effect Styles --- */
+/* Add perspective to the parent grid */
+#companies-page {
+    perspective: 1500px;
+}
+
+/* Add properties to the card for the 3D effect */
+.company-card {
+    transform-style: preserve-3d;
+    will-change: transform; /* Performance optimization */
+    transition: transform 0.5s ease-out, box-shadow 0.5s ease-out; /* Smoother reset */
+}
+
+/* --- 2. Page Transition Animation Styles --- */
+/* Class added when a page is about to hide */
+.is-hiding {
+    animation: fade-out-up 0.5s forwards;
+}
+
+/* Class added when a page is about to show */
+.is-showing {
+    animation: fade-in-down 0.5s forwards;
+}
+
+@keyframes fade-out-up {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Add these new styles to the end of your CSS file */
+.carousel .list .item .introduce .specifications {
+    display: flex;
+    flex-direction: column; /* This line stacks the items vertically */
+    gap: 15px; /* Adjust gap for vertical spacing */
+    margin-top: 20px;
+    border-top: 1px solid #5553;
+    padding-top: 10px;
+}
+.carousel .list .item .introduce .specifications div {
+    text-align: left;
+    flex-shrink: 0;
+}
+.carousel .list .item .introduce .specifications div p:nth-child(1) {
+    font-weight: bold;
+    color: #333;
+}
+.carousel .list .item .introduce .specifications div p:nth-child(2) {
+    font-size: small;
+    color: #5559;
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Soft Drink Awareness</title>
+    <style>
+        :root {
+            --primary-color: #FF6B35; /* Mango orange from image */
+            --secondary-color: #6A4C93; /* Blackberry purple from image */
+            --accent-color: #FFA630; /* Pineapple yellow-orange */
+            --text-color: #333333;
+            --light-bg: #FFF8F0;
+            --dark-bg: #292F36;
+            --highlight-color: #21A179; /* Complementary green */
+        }
+        
+        body {
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+            background-color: var(--light-bg);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+        
+        h2 {
+            color: var(--secondary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-top: 40px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: var(--primary-color);
+            margin-top: 25px;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .mission-box {
+            background-color: #F0FFF0;
+            border-left: 5px solid var(--highlight-color);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .team-member {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-top: 4px solid var(--secondary-color);
+            transition: transform 0.3s ease;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-5px);
+        }
+        
+        .team-member img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        .team-member h3 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        
+        .team-member .position {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            background-color: var(--dark-bg);
+            color: white;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Navigation styling */
+        nav {
+            background-color: white;
+            padding: 15px 0;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            gap: 30px;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark-bg);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: var(--primary-color);
+            background-color: rgba(255, 107, 53, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>About Soft Drink Awareness</h1>
+        <p class="tagline">Our mission to expose the truth about sugary beverages</p>
+    </header>
+
+    
+
+    <section class="content-section">
+        <h2>Our Story</h2>
+        <p>Soft Drink Awareness was founded in 2020 by a group of health professionals, nutritionists, and concerned citizens who witnessed firsthand the devastating effects of excessive soft drink consumption on individuals and communities.</p>
+        
+        <p>What began as a local initiative to educate school children about healthy beverage choices has grown into a national movement to raise awareness about the hidden dangers in every sip of soda and other sugary drinks.</p>
+        
+        <div class="mission-box">
+            <h3>Our Mission</h3>
+            <p>To provide evidence-based information about the health impacts of soft drinks, empower individuals to make informed beverage choices, and advocate for policies that reduce the harmful effects of excessive sugar consumption on public health.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Why We Do This Work</h2>
+        
+        <p>We believe everyone has the right to accurate information about what they're putting into their bodies. The beverage industry spends billions on marketing that downplays or obscures the health risks of their products.</p>
+        
+        <p>Our team has seen the consequences:</p>
+        <ul>
+            <li>Children developing type 2 diabetes before they reach high school</li>
+            <li>Families struggling with obesity-related health issues</li>
+            <li>Communities with limited access to clean water but abundant soda availability</li>
+            <li>The normalization of daily soft drink consumption as harmless</li>
+        </ul>
+        
+        <p>We're not against occasional treats, but we are against the deception that has made soft drinks a daily staple in millions of diets worldwide.</p>
+    </section>
+
+    <section class="content-section">
+        <h2>Our Approach</h2>
+        
+        <h3>Science-Based Education</h3>
+        <p>All our materials are grounded in peer-reviewed research from leading medical journals and health organizations. We translate complex scientific findings into clear, actionable information.</p>
+        
+        <h3>Community Empowerment</h3>
+        <p>We work with schools, community centers, and healthcare providers to deliver programs that help people understand beverage choices and develop healthier habits.</p>
+        
+        <h3>Policy Advocacy</h3>
+        <p>We support evidence-based policies like sugar taxes, clearer labeling, and restrictions on marketing to children - policies that have been shown to reduce consumption and improve public health.</p>
+        
+        <h3>Positive Solutions</h3>
+        <p>We don't just highlight problems - we provide practical alternatives and strategies for reducing soft drink consumption without feeling deprived.</p>
+    </section>
+
+    
+
+    <section class="content-section">
+        <h2>Our Impact</h2>
+        
+        <p>Since our founding, Soft Drink Awareness has:</p>
+        <ul>
+            <li>Reached over 500,000 students through school programs</li>
+            <li>Trained 2,000 healthcare providers to discuss beverage choices with patients</li>
+            <li>Supported successful policy initiatives in 12 states</li>
+            <li>Helped thousands of individuals reduce or eliminate sugary drinks</li>
+            <li>Been featured in major media outlets bringing national attention to the issue</li>
+        </ul>
+        
+        <p>But with soft drink consumption still at alarming levels, our work is far from done.</p>
+        
+        <h3>Join Our Movement</h3>
+        <p>Whether you're a healthcare professional, educator, parent, or concerned citizen, you can help spread awareness about the dangers of excessive soft drink consumption.</p>
+        
+        <a href="#" class="btn">Become a Volunteer</a>
+        <a href="#" class="btn">Request a Presentation</a>
+        <a href="#" class="btn">Support Our Work</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Soft Drink Awareness Initiative. All rights reserved.</p>
+        <p>This educational content is provided for informational purposes only and is not intended as medical advice.</p>
+        <p><a href="privacy.html" style="color: var(--accent-color);">Privacy Policy</a> | <a href="contact.html" style="color: var(--accent-color);">Contact Us</a></p>
+    </footer>
+</body>
+</html>
