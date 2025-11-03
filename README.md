@@ -1,9 +1,9 @@
-<!-- SIPWISE — Animated SIP/VoIP Toolkit README
-     Style: Beautiful, animated (SVG + GIF + modern badges), informative, playful, and professional.
-     All SVGs are inline, badges from Shields.io, GIFs from your .github/assets folder.
+<!--
+  SIPWISE — BEAUTIFUL, ANIMATED, AND FULLY INFORMATIVE README
+  Paste this as your README.md. All SVGs and images are GitHub-safe.
+  Replace image paths with your own if needed!
 -->
 
-<!-- Animated header: Waving, gradient SIPWISE logo -->
 <p align="center">
   <svg width="820" height="140" viewBox="0 0 820 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
     <defs>
@@ -36,74 +36,42 @@
     </g>
   </svg>
 </p>
-<p align="center">
-  <svg width="520" height="40" viewBox="0 0 520 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="subg" x1="0" x2="1"><stop offset="0%" stop-color="#43e97b"/><stop offset="100%" stop-color="#38f9d7"/></linearGradient></defs><text x="50%" y="50%" text-anchor="middle" font-family="Segoe UI, Roboto, sans-serif" font-size="22" font-weight="500" fill="url(#subg)"><animate attributeName="opacity" values="0;1;0.7;1" dur="3s" repeatCount="indefinite"/>THE MODERN, VISUAL SIP/VoIP TOOLKIT</text></svg>
-</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-alpha-orange?style=for-the-badge&logo=github" alt="status"/>
-  <img src="https://img.shields.io/badge/language-VoIP%20%7C%20SIP-blue?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/licence-MIT-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/-INSTALL%20%26%20TEST-07c4ff?style=for-the-badge&logo=docker" alt="Install & Test Badge"/>
+  <img src="https://img.shields.io/badge/SIP-Animated%20Flows-blueviolet?style=for-the-badge"/>
+  <img src="https://img.shields.io/github/stars/Sachin23991/sipwise?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/license-MIT-green?style=for-the-badge"/>
 </p>
 
 ---
 
-<p align="center">
-  <img alt="sipwise-demo" src="https://raw.githubusercontent.com/Sachin23991/sipwise/main/.github/assets/animated-demo.gif" style="max-width:720px; width:90%; border-radius:12px; box-shadow: 0 10px 30px rgba(2,6,23,0.25)"/>
-</p>
-<p align="center">
-  <sub><b>Animated demo – see SIPWISE in action!</b></sub>
-</p>
+## 🚀 Features
 
----
-
-## Table of Contents
-- [Features](#features)
-- [Quickstart](#quickstart)
-- [Usage examples](#usage-examples)
-- [Architecture overview](#architecture-overview)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [Roadmap](#roadmap)
-- [License](#license)
-
----
-
-## Features
-
-<table align="center">
+<table>
   <tr>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/activity.svg" width="40"/><br/><b>Animated Call Flows</b><br/><sub>Watch SIP flows unfold live.</sub></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/terminal.svg" width="40"/><br/><b>CLI & Dockerized UX</b><br/><sub>Test probes in your terminal. 🚀</sub></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/monitor.svg" width="40"/><br/><b>Visual Tracing</b><br/><sub>See every SIP message, visually.</sub></td>
-    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/cpu.svg" width="40"/><br/><b>Plug & Play</b><br/><sub>Adapter for PBX and media gateways.</sub></td>
+    <td align="center">
+      <img src="https://raw.githubusercontent.com/Sachin23991/sipwise/main/.github/assets/animated-demo.gif" width="90" />
+      <br/><b>Animated Call Flows</b>
+      <br/><sub>See visually how SIP packets move!</sub>
+    </td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/eye.svg" width="36"/>
+      <br/><b>Deep Tracing</b><br/><sub>Step inside every message</sub>
+    </td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/box.svg" width="36"/>
+      <br/><b>Container Ready</b><br/><sub>Runs anywhere, anytime</sub>
+    </td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/bar-chart-2.svg" width="36"/>
+      <br/><b>Observability</b><br/><sub>Metrics & visual logs</sub>
+    </td>
   </tr>
 </table>
 
-- **Signal flow visualizations:** Animated SIP INVITE, 200 OK, ACK as SVGs.
-- **SIP endpoint probe, NAT diagnostics, call tracing.**
-- **Docker-friendly, lightweight, extensible.**
-- **Observability:** Logs, pcap helpers, live visual traces.
+- **Signal flow visualizations:** SIP INVITE, 200 OK, ACK as SVG animations.
+- **Probes, NAT diagnose, call tracing.**
+- **Lightweight, Docker-friendly, extensible.**
+- **Logs, pcap helpers, live traces.**
 
 ---
 
-## Why animations?
-- *Visualize call flow and SIP timing instantly.*
-- *See state machines directly in README/docs.*
-- *Fun, intuitive onboarding for beginners and pros.*
+## 📦 Quickstart
 
----
-
-## Quickstart
-
-<details>
-  <summary><b>Prerequisites</b></summary>
-<ul>
-  <li>Docker / Docker Compose (recommended)</li>
-  <li>Node.js 18+ (tooling UI, optional)</li>
-  <li>Any SIP softphone or pjsua for tests</li>
-</ul>
-</details>
-
-**Quick start with Docker:**
