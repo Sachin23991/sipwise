@@ -1,12 +1,9 @@
-# SIPWISE — SIP / VoIP Toolkit (Beautiful + Animated README)
-
-<!--
-  WARNING: This README is intentionally full of animations (SVG + GIFs).
-  GitHub supports inline SVG (no scripts) and image embeds. If any SVGs
-  don't render in your viewer, fallbacks are provided as GIFs.
+<!-- SIPWISE — Animated SIP/VoIP Toolkit README
+     Style: Beautiful, animated (SVG + GIF + modern badges), informative, playful, and professional.
+     All SVGs are inline, badges from Shields.io, GIFs from your .github/assets folder.
 -->
 
-<!-- Animated header: waving title (SVG) -->
+<!-- Animated header: Waving, gradient SIPWISE logo -->
 <p align="center">
   <svg width="820" height="140" viewBox="0 0 820 140" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid">
     <defs>
@@ -20,20 +17,13 @@
         <feBlend in="SourceGraphic" in2="b"/>
       </filter>
     </defs>
-
-    <!-- animated gradient text -->
-    <text x="50%" y="50%" text-anchor="middle" font-family="Segoe UI, Roboto, sans-serif"
-          font-size="40" font-weight="700" fill="url(#g1)" filter="url(#f1)">
+    <text x="50%" y="50%" text-anchor="middle" font-family="Segoe UI, Roboto, sans-serif" font-size="40" font-weight="700" fill="url(#g1)" filter="url(#f1)">
       SIPWISE
     </text>
-
-    <!-- subtle animated underline -->
     <rect x="170" y="78" width="480" height="6" rx="3" fill="url(#g1)">
       <animate attributeName="x" values="170;150;170" dur="3.5s" repeatCount="indefinite" />
       <animate attributeName="width" values="480;520;480" dur="3.5s" repeatCount="indefinite" />
     </rect>
-
-    <!-- animated packets (dots) -->
     <g transform="translate(80,95)">
       <circle cx="0" cy="0" r="4" fill="#00c6ff">
         <animate attributeName="cx" from="0" to="740" dur="4.5s" repeatCount="indefinite" />
@@ -46,212 +36,74 @@
     </g>
   </svg>
 </p>
+<p align="center">
+  <svg width="520" height="40" viewBox="0 0 520 40" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="subg" x1="0" x2="1"><stop offset="0%" stop-color="#43e97b"/><stop offset="100%" stop-color="#38f9d7"/></linearGradient></defs><text x="50%" y="50%" text-anchor="middle" font-family="Segoe UI, Roboto, sans-serif" font-size="22" font-weight="500" fill="url(#subg)"><animate attributeName="opacity" values="0;1;0.7;1" dur="3s" repeatCount="indefinite"/>THE MODERN, VISUAL SIP/VoIP TOOLKIT</text></svg>
+</p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/status-alpha-orange?style=for-the-badge&logo=github" alt="status" />
-  <img src="https://img.shields.io/badge/language-VoIP%20%7C%20SIP-blue?style=for-the-badge" alt="language" />
-  <img src="https://img.shields.io/badge/licence-MIT-green?style=for-the-badge" alt="license" />
+  <img src="https://img.shields.io/badge/status-alpha-orange?style=for-the-badge&logo=github" alt="status"/>
+  <img src="https://img.shields.io/badge/language-VoIP%20%7C%20SIP-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/licence-MIT-green?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/-INSTALL%20%26%20TEST-07c4ff?style=for-the-badge&logo=docker" alt="Install & Test Badge"/>
 </p>
 
 ---
 
-Animated GIF demo (playful):  
 <p align="center">
   <img alt="sipwise-demo" src="https://raw.githubusercontent.com/Sachin23991/sipwise/main/.github/assets/animated-demo.gif" style="max-width:720px; width:90%; border-radius:12px; box-shadow: 0 10px 30px rgba(2,6,23,0.25)"/>
 </p>
-
-Note: if the GIF above doesn't load, make sure the file exists at .github/assets/animated-demo.gif in this repo. You can replace with your own recording or use the inline SVGs below.
-
-Table of Contents
-- Features (animated)
-- Quickstart (with animated terminal)
-- Usage examples
-- Architecture overview (live SVG network)
-- Configuration
-- Contributing (with playful badges)
-- Roadmap
-- License
-
----
-
-Features (what makes SIPWISE special)
-- Animated visualizations for signaling flows (SIP INVITE, 200 OK, ACK) — included as SVG animations.
-- Tooling for testing SIP endpoints, NAT traversal diagnostics, and call-flow tracing.
-- Lightweight Docker-friendly components and example Compose files.
-- Extensible: add adapters to your PBX or custom media gateways.
-- Designed with observability in mind — logs, pcap capture helpers, and live-call visual traces.
-
-Why animations?
-- Visualize call flow and timing easily.
-- Demonstrate state machines clearly in README and docs.
-- Make onboarding fun and intuitive.
-
----
-
-Getting started (quickstart)
-1. Prerequisites
-   - Docker & Docker Compose (recommended)
-   - Node.js 18+ (for the tooling UI, optional)
-   - A SIP softphone or pjsua to test calls
-
-2. Quick start (Docker)
-```bash
-# clone
-git clone https://github.com/Sachin23991/sipwise.git
-cd sipwise
-
-# bring up example environment
-docker compose up --build
-```
-
-3. Run a quick SIP test (animated terminal)
 <p align="center">
-  <!-- Inline animated SVG terminal (lightweight) -->
-  <svg width="680" height="140" viewBox="0 0 680 140" xmlns="http://www.w3.org/2000/svg" style="border-radius:8px;">
-    <rect width="100%" height="100%" rx="8" fill="#0b1220"/>
-    <text x="20" y="30" fill="#7fffd4" font-family="monospace" font-size="14">$</text>
-    <text x="34" y="30" fill="#ffffff" font-family="monospace" font-size="14"> sipwise inspect --target sip:alice@example.org</text>
-
-    <!-- Animated cursor -->
-    <rect x="620" y="16" width="8" height="16" fill="#7fffd4">
-      <animate attributeName="opacity" values="1;0;1" dur="1s" repeatCount="indefinite"/>
-    </rect>
-  </svg>
-</p>
-
-Example: run a SIP OPTIONS or INVITE probe to confirm reachability:
-```bash
-# example tool (replace with your binary)
-./bin/sipwise probe --target sip:alice@192.0.2.10 --from sip:tester@example.local
-```
-
----
-
-Animated call-flow diagram (SIP INVITE -> 200 OK -> ACK)
-<p align="center">
-  <svg width="820" height="240" viewBox="0 0 820 240" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
-        <path d="M0,0 L6,3 L0,6 z" fill="#222"/>
-      </marker>
-    </defs>
-
-    <!-- endpoints -->
-    <g font-family="Segoe UI" font-size="14">
-      <text x="60" y="40">UAC (caller)</text>
-      <text x="360" y="40">Proxy</text>
-      <text x="660" y="40">UAS (callee)</text>
-    </g>
-
-    <!-- signaling lines with animated packets -->
-    <line x1="140" y1="80" x2="340" y2="80" stroke="#00c6ff" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="230" y="72" fill="#00c6ff" font-size="12" text-anchor="middle">INVITE</text>
-
-    <line x1="360" y1="80" x2="640" y2="80" stroke="#00c6ff" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="500" y="72" fill="#00c6ff" font-size="12" text-anchor="middle">INVITE</text>
-
-    <!-- animated 100 Trying / 180 Ringing -->
-    <g>
-      <text x="500" y="102" font-size="12">100 Trying</text>
-      <circle cx="500" cy="120" r="6" fill="#ffd54f">
-        <animate attributeName="r" values="6;12;6" dur="1.1s" repeatCount="indefinite"/>
-      </circle>
-    </g>
-
-    <!-- 200 OK (animated) -->
-    <line x1="640" y1="140" x2="360" y2="140" stroke="#7fffd4" stroke-width="3" marker-end="url(#arrow)">
-      <animate attributeName="stroke-width" values="1;4;1" dur="1.6s" repeatCount="indefinite"/>
-    </line>
-    <text x="500" y="134" fill="#7fffd4" font-size="12" text-anchor="middle">200 OK</text>
-
-    <!-- ACK -->
-    <line x1="360" y1="160" x2="140" y2="160" stroke="#8a2be2" stroke-width="2" marker-end="url(#arrow)"/>
-    <text x="250" y="154" fill="#8a2be2" font-size="12" text-anchor="middle">ACK</text>
-  </svg>
+  <sub><b>Animated demo – see SIPWISE in action!</b></sub>
 </p>
 
 ---
 
-Usage examples
-- Probe: sipwise probe --target sip:bob@example.net --timeout 3s
-- Trace: sipwise trace --call-id "abc123" --output call1.pcap
-- Emulate endpoint: sipwise emulate --user alice --domain example.org
-
-See docs/ for deep-dive guides (call-flow debugging, NAT heuristics, failure-mode analysis).
-
-Configuration
-- Default config file: config/default.yml
-- Environment variables supported:
-  - SIPWISE_BIND=0.0.0.0:5060
-  - SIPWISE_LOG_LEVEL=info
-  - SIPWISE_PCAP_DIR=/var/log/sipwise/pcaps
-
-Contributing (animated contribution ladder)
-<p align="center">
-  <img alt="contrib-ladder" src="https://raw.githubusercontent.com/Sachin23991/sipwise/main/.github/assets/contrib-ladder.gif" style="max-width:560px; width:90%; border-radius:8px;">
-</p>
-
-How to contribute
-1. Fork the repo
-2. Create a feature branch
-3. Open a PR describing the change with "motivation" and "how I tested"
-4. Add tests where applicable
-5. Keep commits small and focused
-
-Community guidelines
-- Be respectful, inclusive, and constructive.
-- Label issues clearly: bug, enhancement, question.
-
-Roadmap (animated progress)
-- v0.1 — Core probes, tracing, Docker examples (done)
-- v0.2 — UI dashboard, call analytics (in progress)
-- v0.3 — Media test harness, WebRTC bridging (planned)
+## Table of Contents
+- [Features](#features)
+- [Quickstart](#quickstart)
+- [Usage examples](#usage-examples)
+- [Architecture overview](#architecture-overview)
+- [Configuration](#configuration)
+- [Contributing](#contributing)
+- [Roadmap](#roadmap)
+- [License](#license)
 
 ---
 
-Files of interest
-- bin/ — CLI tools and helpers
-- examples/docker-compose.yml — opinionated example stack
-- docs/ — howtos and developer notes
-- .github/workflows/ — CI for linting & tests
+## Features
 
-License
-This project is released under the MIT License. See LICENSE for details.
+<table align="center">
+  <tr>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/activity.svg" width="40"/><br/><b>Animated Call Flows</b><br/><sub>Watch SIP flows unfold live.</sub></td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/terminal.svg" width="40"/><br/><b>CLI & Dockerized UX</b><br/><sub>Test probes in your terminal. 🚀</sub></td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/monitor.svg" width="40"/><br/><b>Visual Tracing</b><br/><sub>See every SIP message, visually.</sub></td>
+    <td align="center"><img src="https://cdn.jsdelivr.net/gh/feathericons/feather/icons/cpu.svg" width="40"/><br/><b>Plug & Play</b><br/><sub>Adapter for PBX and media gateways.</sub></td>
+  </tr>
+</table>
 
-Footer — fun animated confetti (pure SVG)
-<p align="center">
-  <svg width="680" height="100" viewBox="0 0 680 100" xmlns="http://www.w3.org/2000/svg">
-    <!-- many tiny confetti pieces falling -->
-    <g>
-      <rect x="20" y="-10" width="6" height="6" fill="#FF595E">
-        <animate attributeName="y" values="-10;110" dur="2.2s" repeatCount="indefinite" begin="0s"/>
-        <animate attributeName="x" values="20;80;20" dur="2.2s" repeatCount="indefinite" begin="0s"/>
-      </rect>
-      <rect x="120" y="-20" width="6" height="6" fill="#FFCA3A">
-        <animate attributeName="y" values="-20;110" dur="2.5s" repeatCount="indefinite" begin="0.2s"/>
-        <animate attributeName="x" values="120;220;120" dur="2.5s" repeatCount="indefinite" begin="0.2s"/>
-      </rect>
-      <rect x="240" y="-5" width="6" height="6" fill="#8AC926">
-        <animate attributeName="y" values="-5;110" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
-        <animate attributeName="x" values="240;320;240" dur="1.8s" repeatCount="indefinite" begin="0.5s"/>
-      </rect>
-      <rect x="380" y="-15" width="6" height="6" fill="#1982C4">
-        <animate attributeName="y" values="-15;110" dur="2.0s" repeatCount="indefinite" begin="0.8s"/>
-        <animate attributeName="x" values="380;480;380" dur="2.0s" repeatCount="indefinite" begin="0.8s"/>
-      </rect>
-      <rect x="520" y="-12" width="6" height="6" fill="#6A4C93">
-        <animate attributeName="y" values="-12;110" dur="2.6s" repeatCount="indefinite" begin="1s"/>
-        <animate attributeName="x" values="520;600;520" dur="2.6s" repeatCount="indefinite" begin="1s"/>
-      </rect>
-    </g>
-  </svg>
-</p>
+- **Signal flow visualizations:** Animated SIP INVITE, 200 OK, ACK as SVGs.
+- **SIP endpoint probe, NAT diagnostics, call tracing.**
+- **Docker-friendly, lightweight, extensible.**
+- **Observability:** Logs, pcap helpers, live visual traces.
 
 ---
 
-Need it tailored?
-- Want more/less animation?
-- Want specific animations for your own call flows or custom branded assets?
-Open an issue or PR with your sample pcap or call-id and I'll help add a visual trace!
+## Why animations?
+- *Visualize call flow and SIP timing instantly.*
+- *See state machines directly in README/docs.*
+- *Fun, intuitive onboarding for beginners and pros.*
 
-Enjoy 👋 — and happy debugging with SIPWISE.
+---
+
+## Quickstart
+
+<details>
+  <summary><b>Prerequisites</b></summary>
+<ul>
+  <li>Docker / Docker Compose (recommended)</li>
+  <li>Node.js 18+ (tooling UI, optional)</li>
+  <li>Any SIP softphone or pjsua for tests</li>
+</ul>
+</details>
+
+**Quick start with Docker:**
